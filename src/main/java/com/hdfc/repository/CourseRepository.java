@@ -12,12 +12,12 @@ import com.hdfc.entity.Course;
 @Repository
 public class CourseRepository {
 	
-	private Map<Integer, Course> courses;
+	private final Map<Integer, Course> courses;
 	private Integer idCount;
 	
 	
 	public CourseRepository() {
-		super();
+		
 		this.courses = new HashMap<>();
 		this.idCount = 100;
 	}
@@ -27,6 +27,7 @@ public class CourseRepository {
 		idCount++;
 		
 		course.setCourseId(idCount);
+		
 		courses.put(idCount,course);
 		
 		return course;
@@ -39,18 +40,19 @@ public class CourseRepository {
 	
 	public Course findById(Integer id) {
 		
-		if(!courses.containsKey(id)) {
-			return null;
-		}
-		
 		return courses.get(id);
 	}
 	
 	public Course update(Integer id, Course course) {
 		
-		if(!courses.containsKey(id)) {
+		Course existingCourse = courses.get(id);
+		
+		if(existingCourse == null) {
+			
 			return null;
 		}
+		
+		course.setCourseId(id);
 		
 		courses.put(id,course);
 		
@@ -59,13 +61,15 @@ public class CourseRepository {
 	
 	public Course delete(Integer id) {
 		
-		if(!courses.containsKey(id)) {
+		Course deletedCourse = courses.get(id);
+		
+		if(deletedCourse == null) {
+			
 			return null;
 		}
 		
-		Course deleted = findById(id);
 		courses.remove(id);
 		
-		return deleted;
+		return deletedCourse;
 	}
 }

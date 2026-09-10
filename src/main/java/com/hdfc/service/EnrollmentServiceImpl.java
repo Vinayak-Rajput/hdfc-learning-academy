@@ -19,13 +19,13 @@ import com.hdfc.repository.EnrollmentRepository;
 @Service
 public class EnrollmentServiceImpl implements EnrollmentService {
 	
-	private EnrollmentRepository enrollmentRepository;
-	private CourseRepository courseRepository;
-	private EnrollmentMapper enrollmentMapper;
+	private final EnrollmentRepository enrollmentRepository;
+	private final CourseRepository courseRepository;
+	private final EnrollmentMapper enrollmentMapper;
 
 	public EnrollmentServiceImpl(EnrollmentRepository enrollmentRepository, CourseRepository courseRepository,
 			EnrollmentMapper enrollmentMapper) {
-		super();
+		
 		this.enrollmentRepository = enrollmentRepository;
 		this.courseRepository = courseRepository;
 		this.enrollmentMapper = enrollmentMapper;
@@ -137,6 +137,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 		for(Enrollment en : enrollmentRepository.findAll()) { 
 		
 			if(en.getEmployeeId() == enrollment.getEmployeeId() && en.getCourseId() == enrollment.getCourseId())
+				
 				return true;
 		}
 		

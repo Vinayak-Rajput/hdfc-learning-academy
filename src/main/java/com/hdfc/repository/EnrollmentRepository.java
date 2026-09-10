@@ -13,12 +13,12 @@ import com.hdfc.entity.Enrollment;
 @Repository
 public class EnrollmentRepository {
 	
-	private Map<Integer, Enrollment> enrollments;
+	private final Map<Integer, Enrollment> enrollments;
 	private Integer idCount;
 	
 	
 	public EnrollmentRepository() {
-		super();
+		
 		this.enrollments = new HashMap<>();
 		this.idCount = 100;
 	}
@@ -28,7 +28,9 @@ public class EnrollmentRepository {
 		idCount++;
 		
 		enrollment.setEnrollmentId(idCount);
+		
 		enrollment.setEnrollmentDate(LocalDate.now());
+		
 		enrollment.setStatus("ENROLLED");
 		
 		enrollments.put(idCount,enrollment);
@@ -46,13 +48,32 @@ public class EnrollmentRepository {
 		return enrollments.get(id);
 	}
 	
-	public void updateStatusCancel(Integer id) {
+	public Enrollment updateStatusCancel(Integer id) {
 		
-		enrollments.get(id).setStatus("CANCELLED");
+		Enrollment enrollment = enrollments.get(id);
+		
+		if(enrollment == null) {
+			
+			return null;
+		}
+		
+		enrollment.setStatus("CANCELLED");
+		
+		return enrollment;
 	}
 	
-	public void updateStatusCompleted(Integer id) {
+	public Enrollment updateStatusCompleted(Integer id) {
 		
-		enrollments.get(id).setStatus("COMPLETED");
+		Enrollment enrollment = enrollments.get(id);
+		
+		if(enrollment == null) {
+			
+			return null;
+		}
+		
+		enrollment.setStatus("COMPLETED");
+		
+		return enrollment;	
+		
 	}
 }

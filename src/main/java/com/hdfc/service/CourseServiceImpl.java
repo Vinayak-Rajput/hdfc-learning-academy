@@ -16,11 +16,11 @@ import com.hdfc.repository.CourseRepository;
 @Service
 public class CourseServiceImpl implements CourseService {
 	
-	private CourseRepository courseRepository;
-	private CourseMapper courseMapper;
+	private final CourseRepository courseRepository;
+	private final CourseMapper courseMapper;
 
 	public CourseServiceImpl(CourseRepository courseRepository, CourseMapper courseMapper) {
-		super();
+
 		this.courseRepository = courseRepository;
 		this.courseMapper = courseMapper;
 	}
