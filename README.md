@@ -327,3 +327,8 @@ Get total count of courses.
 | employeeId | integer |  | No |
 | employeeName | string |  | No |
 | courseId | integer |  | No |
+
+
+## Screenshots
+
+

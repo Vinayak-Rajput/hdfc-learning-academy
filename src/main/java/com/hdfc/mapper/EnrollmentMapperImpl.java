@@ -14,7 +14,11 @@ public class EnrollmentMapperImpl implements EnrollmentMapper {
 		
 		EnrollmentResponseDto enrollmentResponseDto = new EnrollmentResponseDto();
 		
+		enrollmentResponseDto.setEnrollmentId(enrollment.getEnrollmentId());
+		enrollmentResponseDto.setEmployeeId(enrollment.getEmployeeId());
+		enrollmentResponseDto.setEmployeeName(enrollment.getEmployeeName());
 		enrollmentResponseDto.setCourseId(enrollment.getCourseId());
+		enrollmentResponseDto.setEnrollmentDate(enrollment.getEnrollmentDate());
 		enrollmentResponseDto.setStatus(enrollment.getStatus());
 		
 		return enrollmentResponseDto;

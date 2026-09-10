@@ -179,7 +179,7 @@ public class CourseController {
 				.body(courseService.getCoursesByTrainer(trainerName));		
 	}
 	
-	@GetMapping("/fees/{amount}")
+	@GetMapping("/fees/{fees}")
 	@Operation( summary = "Get Courses By Fees Less Than", description = "Get all course resources for fees less than given fee amount.")
 	@ApiResponse(
 					responseCode = "200",
