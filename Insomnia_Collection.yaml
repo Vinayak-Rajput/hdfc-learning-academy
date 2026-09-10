@@ -1,0 +1,824 @@
+type: spec.insomnia.rest/5.0
+schema_version: "5.1"
+name: OpenAPI definition v0
+meta:
+  id: wrk_a33ef9256e194abb8b0682cc0a804a3d
+  created: 1789015487987
+  modified: 1789015487987
+  description: ""
+collection:
+  - name: Analytics APIs
+    meta:
+      id: fld_0572f69036044939823fc00eb752956e
+      created: 1789015487991
+      modified: 1789015487991
+      sortKey: -1789015487991
+      description: Operations for Analytics System
+    children:
+      - url: "{{ _.base_url }}/analytics/most-popular-course"
+        name: Get Most Popular Course
+        meta:
+          id: req_92e156adac31405fa9111fea1f9c906c
+          created: 1789015488000
+          modified: 1789015488000
+          isPrivate: false
+          description: Get course with most enrollments.
+          sortKey: -1789015488000
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/analytics/enrollment-count"
+        name: Get Enrollments Count
+        meta:
+          id: req_b9df94a36bfa4faaa4c5f1ca59a999e7
+          created: 1789015488000
+          modified: 1789015488000
+          isPrivate: false
+          description: Get total count of enrollments.
+          sortKey: -1789015488000
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/analytics/course-count"
+        name: Get Courses Count
+        meta:
+          id: req_e6926e39322543989641febf1de472ab
+          created: 1789015488001
+          modified: 1789015488001
+          isPrivate: false
+          description: Get total count of courses.
+          sortKey: -1789015488001
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Courses APIs
+    meta:
+      id: fld_d86e74b906404cb78ac74dff9239a9db
+      created: 1789015487991
+      modified: 1789015487991
+      sortKey: -1789015487991
+      description: Operations for Course Management System
+    children:
+      - url: "{{ _.base_url }}/courses/107"
+        name: Update Course
+        meta:
+          id: req_2c72718145cf4f88a895ed5d01bb6529
+          created: 1789015487993
+          modified: 1789028937919
+          isPrivate: false
+          description: Update Course Details.
+          sortKey: -1789015487993
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            	{
+            		"courseId": 106,
+            		"courseName": "Kafka",
+            		"trainerName": "John Stuart",
+            		"durationInDays": 55,
+            		"maxCapacity": 2,
+            		"fees": 2000.0
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/courses/105"
+        name: Get Course By ID
+        meta:
+          id: req_a17d8440009b4d7a954537cf7845a647
+          created: 1789015487993
+          modified: 1789028915645
+          isPrivate: false
+          description: Get an course resource by ID reference.
+          sortKey: -1789015487993
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/courses/103"
+        name: Delete Course
+        meta:
+          id: req_9e2238c7b4e548da912c258d0e7124d1
+          created: 1789015487994
+          modified: 1789028904813
+          isPrivate: false
+          description: Delete Course Details.
+          sortKey: -1789015487994
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/courses"
+        name: Get All Courses
+        meta:
+          id: req_de213a0c76614c529d516e53591b5c37
+          created: 1789015487996
+          modified: 1789023501540
+          isPrivate: false
+          description: Get all course resources.
+          sortKey: -1789015487996
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/courses"
+        name: Create Course
+        meta:
+          id: req_91225e547595440ea5a922699a260f4c
+          created: 1789015487997
+          modified: 1789028889264
+          isPrivate: false
+          description: Create a new course resource.
+          sortKey: -1789015487997
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            		"courseId": 107,
+            		"courseName": "Kafka",
+            		"trainerName": "John",
+            		"durationInDays": 55,
+            		"maxCapacity": 2,
+            		"fees": 2000.0
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/courses/trainer/Ratan"
+        name: Get Courses By Trainer Name
+        meta:
+          id: req_09f1ce42dd844879b9e1d8fc8dcc69c7
+          created: 1789015487999
+          modified: 1789023881146
+          isPrivate: false
+          description: Get all course resources for given trainer.
+          sortKey: -1789015487999
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/courses/fees/10000.0"
+        name: Get Courses By Fees Less Than
+        meta:
+          id: req_9968de30c6fb4a4d9fc4ee8738e587af
+          created: 1789015487999
+          modified: 1789023722508
+          isPrivate: false
+          description: Get all course resources for fees less than given fee amount.
+          sortKey: -1789015487999
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Enrollment APIs
+    meta:
+      id: fld_aece55ca4031431baad4ae24acc19068
+      created: 1789015487992
+      modified: 1789015487992
+      sortKey: -1789015487992
+      description: Operations for Enrollment System
+    children:
+      - url: "{{ _.base_url }}/enrollments/101/complete"
+        name: Complete Course
+        meta:
+          id: req_d413614a8e0343f98367e032cc4f6268
+          created: 1789015487992
+          modified: 1789029193996
+          isPrivate: false
+          description: Set status for course as 'COMPLETED'.
+          sortKey: -1789015487992
+        method: PUT
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/enrollments/104/cancel"
+        name: Cancel Enrollment
+        meta:
+          id: req_33d3cb24454841b4844be12ca10bdb21
+          created: 1789015487993
+          modified: 1789029182550
+          isPrivate: false
+          description: Set status for enrollment as 'CANCELLED'.
+          sortKey: -1789015487993
+        method: PUT
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/enrollments"
+        name: Get All Enrollments
+        meta:
+          id: req_70c8a7005ab549a7a80b42c8780117c3
+          created: 1789015487994
+          modified: 1789015487994
+          isPrivate: false
+          description: Get all enrollment resources.
+          sortKey: -1789015487994
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/enrollments"
+        name: Create Enrollment
+        meta:
+          id: req_b0282b65b88e4213bdd7892f3d726d43
+          created: 1789015487995
+          modified: 1789029035784
+          isPrivate: false
+          description: Create a new enrollment resource.
+          sortKey: -1789015487995
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "employeeId": 102,
+              "employeeName": "Jinny",
+              "courseId": 101
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/enrollments/103"
+        name: Get Enrollment By ID
+        meta:
+          id: req_ade8d22a0d9242edac3f3153560df451
+          created: 1789015487997
+          modified: 1789029117529
+          isPrivate: false
+          description: Get an enrollment resource by ID reference.
+          sortKey: -1789015487997
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/enrollments/employee/:employeeId"
+        name: Get Enrollments By Employee ID
+        meta:
+          id: req_23a61c7efde24476b187da41b8018692
+          created: 1789015487998
+          modified: 1789015487998
+          isPrivate: false
+          description: Get all enrollment resources for employee ID.
+          sortKey: -1789015487998
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}/enrollments/status/CANCELLED"
+        name: Get Enrollments By Status
+        meta:
+          id: req_96a771acf97d4f4b904cf38f1c990396
+          created: 1789015487998
+          modified: 1789029154564
+          isPrivate: false
+          description: Get all enrollment resources for status.
+          sortKey: -1789015487998
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_86286f3a78202c811bc12b6bb4d5e25aa0f73606
+    created: 1789015488052
+    modified: 1789015488052
+environments:
+  name: Base environment
+  meta:
+    id: env_fa40d2581a8a4bbe8844a961414d2d88
+    created: 1789015487990
+    modified: 1789015487990
+    isPrivate: false
+  data:
+    base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
+  subEnvironments:
+    - name: OpenAPI env localhost:8080
+      meta:
+        id: env_93dfaad1e73a4740bf1361face009a65
+        created: 1789015487990
+        modified: 1789015487990
+        isPrivate: false
+        sortKey: 1789015487990
+      data:
+        scheme: http
+        base_path: ""
+        host: localhost:8080
+spec:
+  contents:
+    openapi: 3.1.0
+    info:
+      title: OpenAPI definition
+      version: v0
+    servers:
+      - url: http://localhost:8080
+        description: Generated server url
+    tags:
+      - name: Analytics APIs
+        description: Operations for Analytics System
+      - name: Courses APIs
+        description: Operations for Course Management System
+      - name: Enrollment APIs
+        description: Operations for Enrollment System
+    paths:
+      /enrollments/{id}/complete:
+        put:
+          tags:
+            - Enrollment APIs
+          summary: Complete Course
+          description: Set status for course as 'COMPLETED'.
+          operationId: complete
+          parameters:
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: integer
+                format: int32
+          responses:
+            "200":
+              description: Completed Successfully.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/EnrollmentResponseDto"
+            "404":
+              description: Enrollment For Update Not Found
+      /enrollments/{id}/cancel:
+        put:
+          tags:
+            - Enrollment APIs
+          summary: Cancel Enrollment
+          description: Set status for enrollment as 'CANCELLED'.
+          operationId: cancel
+          parameters:
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: integer
+                format: int32
+          responses:
+            "200":
+              description: Cancelled Successfully.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/EnrollmentResponseDto"
+            "404":
+              description: Enrollment Not Found
+      /courses/{id}:
+        get:
+          tags:
+            - Courses APIs
+          summary: Get Course By ID
+          description: Get an course resource by ID reference.
+          operationId: getCourseById
+          parameters:
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: integer
+                format: int32
+          responses:
+            "200":
+              description: Fetched the required Course details.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/CourseResponseDto"
+            "404":
+              description: Course Not Found
+        put:
+          tags:
+            - Courses APIs
+          summary: Update Course
+          description: Update Course Details.
+          operationId: updateCourse
+          parameters:
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: integer
+                format: int32
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/CourseRequestDto"
+            required: true
+          responses:
+            "200":
+              description: Updated Successfully.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/CourseResponseDto"
+            "404":
+              description: Course Not Found
+        delete:
+          tags:
+            - Courses APIs
+          summary: Delete Course
+          description: Delete Course Details.
+          operationId: deleteCourse
+          parameters:
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: integer
+                format: int32
+          responses:
+            "200":
+              description: Deleted Successfully.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/CourseResponseDto"
+            "404":
+              description: Course Not Found
+      /enrollments:
+        get:
+          tags:
+            - Enrollment APIs
+          summary: Get All Enrollments
+          description: Get all enrollment resources.
+          operationId: getAll
+          responses:
+            "200":
+              description: Fetched all Enrollments details.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/EnrollmentResponseDto"
+        post:
+          tags:
+            - Enrollment APIs
+          summary: Create Enrollment
+          description: Create a new enrollment resource.
+          operationId: create
+          requestBody:
+            description: Payload to create Enrollment resource
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/EnrollmentRequestDto"
+            required: true
+          responses:
+            "201":
+              description: Successfully created a new employee resource
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/EnrollmentResponseDto"
+            "400":
+              description: Course Capacity Full
+            "404":
+              description: Course Not Found
+            "409":
+              description: Already Enrolled
+      /courses:
+        get:
+          tags:
+            - Courses APIs
+          summary: Get All Courses
+          description: Get all course resources.
+          operationId: getAllCourses
+          responses:
+            "200":
+              description: Fetched all Course details.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/CourseResponseDto"
+        post:
+          tags:
+            - Courses APIs
+          summary: Create Course
+          description: Create a new course resource.
+          operationId: createCourse
+          requestBody:
+            description: Payload to create Course resource
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/CourseRequestDto"
+            required: true
+          responses:
+            "201":
+              description: Successfully created a new copurse resource
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/CourseResponseDto"
+      /enrollments/{id}:
+        get:
+          tags:
+            - Enrollment APIs
+          summary: Get Enrollment By ID
+          description: Get an enrollment resource by ID reference.
+          operationId: getById
+          parameters:
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: integer
+                format: int32
+          responses:
+            "200":
+              description: Fetched the required Enrollment details.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/EnrollmentResponseDto"
+            "404":
+              description: Enrollment Not Found
+      /enrollments/status/{status}:
+        get:
+          tags:
+            - Enrollment APIs
+          summary: Get Enrollments By Status
+          description: Get all enrollment resources for status.
+          operationId: getEnrollmentsByStatus
+          parameters:
+            - name: status
+              in: path
+              required: true
+              schema:
+                type: string
+          responses:
+            "200":
+              description: Fetched the required Enrollments.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/EnrollmentResponseDto"
+      /enrollments/employee/{employeeId}:
+        get:
+          tags:
+            - Enrollment APIs
+          summary: Get Enrollments By Employee ID
+          description: Get all enrollment resources for employee ID.
+          operationId: getEnrollmentsByEmployeeId
+          responses:
+            "200":
+              description: Fetched the required Enrollments.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/EnrollmentResponseDto"
+      /courses/trainer/{trainerName}:
+        get:
+          tags:
+            - Courses APIs
+          summary: Get Courses By Trainer Name
+          description: Get all course resources for given trainer.
+          operationId: getCoursesByTrainer
+          parameters:
+            - name: trainerName
+              in: path
+              required: true
+              schema:
+                type: string
+          responses:
+            "200":
+              description: Fetched the required Courses.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/CourseResponseDto"
+      /courses/fees/{amount}:
+        get:
+          tags:
+            - Courses APIs
+          summary: Get Courses By Fees Less Than
+          description: Get all course resources for fees less than given fee amount.
+          operationId: getCoursesByFeeLimit
+          responses:
+            "200":
+              description: Fetched the required Courses.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/CourseResponseDto"
+      /analytics/most-popular-course:
+        get:
+          tags:
+            - Analytics APIs
+          summary: Get Most Popular Course
+          description: Get course with most enrollments.
+          operationId: getMostPopularCourse
+          responses:
+            "200":
+              description: Fetched the most popular course.
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/CourseResponseDto"
+      /analytics/enrollment-count:
+        get:
+          tags:
+            - Analytics APIs
+          summary: Get Enrollments Count
+          description: Get total count of enrollments.
+          operationId: getEnrollmentsCount
+          responses:
+            "200":
+              description: Fetched the enrollments count.
+              content:
+                application/json:
+                  schema:
+                    type: integer
+                    format: int32
+      /analytics/course-count:
+        get:
+          tags:
+            - Analytics APIs
+          summary: Get Courses Count
+          description: Get total count of courses.
+          operationId: getCoursesCount
+          responses:
+            "200":
+              description: Fetched the courses count.
+              content:
+                application/json:
+                  schema:
+                    type: integer
+                    format: int32
+    components:
+      schemas:
+        EnrollmentResponseDto:
+          type: object
+          properties:
+            enrollmentId:
+              type: integer
+              format: int32
+            employeeId:
+              type: integer
+              format: int32
+            employeeName:
+              type: string
+            courseId:
+              type: integer
+              format: int32
+            enrollmentDate:
+              type: string
+              format: date
+            status:
+              type: string
+        CourseRequestDto:
+          type: object
+          properties:
+            courseName:
+              type: string
+            trainerName:
+              type: string
+            durationInDays:
+              type: integer
+              format: int32
+            maxCapacity:
+              type: integer
+              format: int32
+            fees:
+              type: number
+              format: double
+        CourseResponseDto:
+          type: object
+          properties:
+            courseId:
+              type: integer
+              format: int32
+            courseName:
+              type: string
+            trainerName:
+              type: string
+            durationInDays:
+              type: integer
+              format: int32
+            maxCapacity:
+              type: integer
+              format: int32
+            fees:
+              type: number
+              format: double
+        EnrollmentRequestDto:
+          type: object
+          properties:
+            employeeId:
+              type: integer
+              format: int32
+            employeeName:
+              type: string
+            courseId:
+              type: integer
+              format: int32
+  meta:
+    id: spc_61c7dc9f0b3543d9866fa18be4cb5d20
+    created: 1789015487988
+    modified: 1789015487988
