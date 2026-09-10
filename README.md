@@ -1,5 +1,5 @@
 # HDFC-Learning-Academy
-## Version: v0 (Documentation Generated with Swagger API)
+## Version: v0 (Documentation Generated with Swagger MarkDown)
 
 ### Servers
 
