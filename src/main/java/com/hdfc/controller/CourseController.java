@@ -16,11 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hdfc.dto.CourseRequestDto;
 import com.hdfc.dto.CourseResponseDto;
-
 import com.hdfc.service.CourseService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/courses")
+@Tag(name = "Courses APIs", description = "Operations for Course Management System")
 public class CourseController {
 	
 	private CourseService courseService;
@@ -30,6 +37,28 @@ public class CourseController {
 	}
 	
 	@PostMapping
+	@Operation(
+			summary = "Create Course", 
+			description = "Create a new course resource.",
+			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+					description = "Payload to create Course resource", 
+					required = true, 
+					content = @Content(
+							schema = @Schema(implementation = CourseRequestDto.class)
+							)
+					)
+			)
+	@ApiResponses(value = {
+			@ApiResponse(
+					responseCode = "201",
+					description = "Successfully created a new copurse resource",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = CourseResponseDto.class)
+						)	
+					)
+			}
+	)
 	public ResponseEntity<CourseResponseDto> createCourse(@RequestBody CourseRequestDto course){
 		
 		return  ResponseEntity
@@ -38,6 +67,15 @@ public class CourseController {
 	}
 	
 	@GetMapping
+	@Operation( summary = "Get All Courses", description = "Get all course resources.")
+	@ApiResponse(
+					responseCode = "200",
+					description = "Fetched all Course details.",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = CourseResponseDto.class)
+						)	
+				)
 	public ResponseEntity<List<CourseResponseDto>> getAllCourses(){
 		
 		return ResponseEntity
@@ -47,6 +85,24 @@ public class CourseController {
 	}
 	
 	@GetMapping("/{id}")
+	@Operation( summary = "Get Course By ID", description = "Get an course resource by ID reference.")
+	@ApiResponses(value = {
+			@ApiResponse(
+					responseCode = "200",
+					description = "Fetched the required Course details.",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = CourseResponseDto.class)
+						)	
+					),
+			
+			@ApiResponse(
+					responseCode = "404",
+					description = "Course Not Found",
+					content = @Content
+					)
+			}
+	)
 	public ResponseEntity<CourseResponseDto> getCourseById(@PathVariable Integer id){
 		
 		return ResponseEntity
@@ -55,6 +111,24 @@ public class CourseController {
 	}
 	
 	@PutMapping("/{id}")
+	@Operation( summary = "Update Course", description = "Update Course Details.")
+	@ApiResponses(value = {
+			@ApiResponse(
+					responseCode = "200",
+					description = "Updated Successfully.",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = CourseResponseDto.class)
+						)	
+					),
+			
+			@ApiResponse(
+					responseCode = "404",
+					description = "Course Not Found",
+					content = @Content
+					)
+			}
+	)
 	public ResponseEntity<CourseResponseDto> updateCourse(@PathVariable Integer id,@RequestBody CourseRequestDto dto){
 		
 		return ResponseEntity
@@ -63,6 +137,24 @@ public class CourseController {
 	}
 	
 	@DeleteMapping("{id}")
+	@Operation( summary = "Delete Course", description = "Delete Course Details.")
+	@ApiResponses(value = {
+			@ApiResponse(
+					responseCode = "200",
+					description = "Deleted Successfully.",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = CourseResponseDto.class)
+						)	
+					),
+			
+			@ApiResponse(
+					responseCode = "404",
+					description = "Course Not Found",
+					content = @Content
+					)
+			}
+	)
 	public ResponseEntity<CourseResponseDto> deleteCourse(@PathVariable Integer id){
 		
 		return ResponseEntity
@@ -71,6 +163,15 @@ public class CourseController {
 	}
 	
 	@GetMapping("/trainer/{trainerName}")
+	@Operation( summary = "Get Courses By Trainer Name", description = "Get all course resources for given trainer.")
+	@ApiResponse(
+					responseCode = "200",
+					description = "Fetched the required Courses.",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = CourseResponseDto.class)
+						)	
+				)
 	public ResponseEntity<List<CourseResponseDto>> getCoursesByTrainer(@PathVariable String trainerName){
 		
 		return ResponseEntity
@@ -79,6 +180,15 @@ public class CourseController {
 	}
 	
 	@GetMapping("/fees/{amount}")
+	@Operation( summary = "Get Courses By Fees Less Than", description = "Get all course resources for fees less than given fee amount.")
+	@ApiResponse(
+					responseCode = "200",
+					description = "Fetched the required Courses.",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = CourseResponseDto.class)
+						)	
+				)
 	public ResponseEntity<List<CourseResponseDto>> getCoursesByFeeLimit(@PathVariable Double fees){
 		
 		return ResponseEntity

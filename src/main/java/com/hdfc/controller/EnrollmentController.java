@@ -17,8 +17,17 @@ import com.hdfc.dto.EnrollmentResponseDto;
 
 import com.hdfc.service.EnrollmentService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 @RestController
 @RequestMapping("/enrollments")
+@Tag(name = "Enrollment APIs", description = "Operations for Enrollment System")
 public class EnrollmentController {
 	
 	EnrollmentService enrollmentService;
@@ -28,6 +37,46 @@ public class EnrollmentController {
 	}
 
 	@PostMapping
+	@Operation(
+			summary = "Create Enrollment", 
+			description = "Create a new enrollment resource.",
+			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+					description = "Payload to create Enrollment resource", 
+					required = true, 
+					content = @Content(
+							schema = @Schema(implementation = EnrollmentRequestDto.class)
+							)
+					)
+			)
+	@ApiResponses(value = {
+			@ApiResponse(
+					responseCode = "201",
+					description = "Successfully created a new employee resource",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = EnrollmentResponseDto.class)
+						)	
+					),
+			
+			@ApiResponse(
+					responseCode = "404",
+					description = "Course Not Found",
+					content = @Content
+					),
+			
+			@ApiResponse(
+					responseCode = "400",
+					description = "Course Capacity Full",
+					content = @Content
+					),
+			
+			@ApiResponse(
+					responseCode = "409",
+					description = "Already Enrolled",
+					content = @Content
+					)
+				}
+	)
 	public ResponseEntity<EnrollmentResponseDto> create(@RequestBody EnrollmentRequestDto enrollmentRequestDto){
 		
 		return ResponseEntity
@@ -36,6 +85,15 @@ public class EnrollmentController {
 	}
 	
 	@GetMapping
+	@Operation( summary = "Get All Enrollments", description = "Get all enrollment resources.")
+	@ApiResponse(
+					responseCode = "200",
+					description = "Fetched all Enrollments details.",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = EnrollmentResponseDto.class)
+						)	
+				)
 	public ResponseEntity<List<EnrollmentResponseDto>> getAll(){
 		
 		return ResponseEntity
@@ -44,6 +102,24 @@ public class EnrollmentController {
 	}
 	
 	@GetMapping("/{id}")
+	@Operation( summary = "Get Enrollment By ID", description = "Get an enrollment resource by ID reference.")
+	@ApiResponses(value = {
+			@ApiResponse(
+					responseCode = "200",
+					description = "Fetched the required Enrollment details.",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = EnrollmentResponseDto.class)
+						)	
+					),
+			
+			@ApiResponse(
+					responseCode = "404",
+					description = "Enrollment Not Found",
+					content = @Content
+					)
+			}
+	)
 	public ResponseEntity<EnrollmentResponseDto> getById(@PathVariable Integer id){
 		
 		return ResponseEntity
@@ -52,6 +128,24 @@ public class EnrollmentController {
 	}
 	
 	@PutMapping("/{id}/cancel")
+	@Operation( summary = "Cancel Enrollment", description = "Set status for enrollment as \'CANCELLED\'.")
+	@ApiResponses(value = {
+			@ApiResponse(
+					responseCode = "200",
+					description = "Cancelled Successfully.",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = EnrollmentResponseDto.class)
+						)	
+					),
+			
+			@ApiResponse(
+					responseCode = "404",
+					description = "Enrollment Not Found",
+					content = @Content
+					)
+			}
+	)
 	public ResponseEntity<EnrollmentResponseDto> cancel(@PathVariable Integer id) {
 		
 		enrollmentService.cancelEnrollment(id);
@@ -62,7 +156,25 @@ public class EnrollmentController {
 	}
 	
 	@PutMapping("/{id}/complete")
-	public ResponseEntity<?> complete(@PathVariable Integer id) {
+	@Operation( summary = "Complete Course", description = "Set status for course as \'COMPLETED\'.")
+	@ApiResponses(value = {
+			@ApiResponse(
+					responseCode = "200",
+					description = "Completed Successfully.",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = EnrollmentResponseDto.class)
+						)	
+					),
+			
+			@ApiResponse(
+					responseCode = "404",
+					description = "Enrollment For Update Not Found",
+					content = @Content
+					)
+			}
+	)
+	public ResponseEntity<EnrollmentResponseDto> complete(@PathVariable Integer id) {
 		
 		enrollmentService.completeEnrollment(id);
 		
@@ -72,6 +184,15 @@ public class EnrollmentController {
 	}
 	
 	@GetMapping("/status/{status}")
+	@Operation( summary = "Get Enrollments By Status", description = "Get all enrollment resources for status.")
+	@ApiResponse(
+					responseCode = "200",
+					description = "Fetched the required Enrollments.",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = EnrollmentResponseDto.class)
+						)	
+				)
 	public ResponseEntity<List<EnrollmentResponseDto>> getEnrollmentsByStatus(@PathVariable String status){
 		
 		return ResponseEntity
@@ -81,6 +202,15 @@ public class EnrollmentController {
 	}
 	
 	@GetMapping("/employee/{employeeId}")
+	@Operation( summary = "Get Enrollments By Employee ID", description = "Get all enrollment resources for employee ID.")
+	@ApiResponse(
+					responseCode = "200",
+					description = "Fetched the required Enrollments.",
+					content = @Content(
+							mediaType = "application/json",
+							schema = @Schema(implementation = EnrollmentResponseDto.class)
+						)	
+				)
 	public ResponseEntity<List<EnrollmentResponseDto>> getEnrollmentsByEmployeeId(@PathVariable Integer empId){
 		
 		return ResponseEntity
