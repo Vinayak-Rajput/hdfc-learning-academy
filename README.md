@@ -333,3 +333,18 @@ Get total count of courses.
 
 ![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/1.png)
 
+![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/2.png)
+
+![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/3.png)
+
+![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/4.png)
+
+![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/5.png)
+
+![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/6.png)
+
+![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/7.png)
+
+![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/8.png)
+
+![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/9.png)
