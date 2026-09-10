@@ -331,4 +331,5 @@ Get total count of courses.
 
 ## Screenshots
 
+![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/1.png)
 
