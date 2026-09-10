@@ -331,8 +331,10 @@ Get total count of courses.
 
 ## Screenshots
 
+### Directory Structure
 ![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/1.png)
 
+### Some of Insomnia Collection Uses
 ![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/2.png)
 
 ![Directory Structure](https://github.com/Vinayak-Rajput/hdfc-learning-academy/blob/main/Screenshots/3.png)
